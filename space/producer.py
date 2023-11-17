@@ -7,15 +7,15 @@ except Exception as e:
     pass
 
 producer = KafkaProducer(bootstrap_servers='localhost:9092')
-_instance = Faker()
 
+faker = Faker()
 
 for _ in range(50):
     _data = {
-        "first_name": _instance.first_name(),
-        "city":_instance.city(),
-        "phone_number":_instance.phone_number(),
-        "state":_instance.state(),
+        "first_name": faker.first_name(),
+        "city": faker.city(),
+        "phone_number": faker.phone_number(),
+        "state": faker.state(),
         "id":str(_)
     }
     _payload = json.dumps(_data).encode("utf-8")
